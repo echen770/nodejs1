@@ -1,5 +1,7 @@
-import {
-    log
-} from './logger.js';
+const os = require('os');
 
-log('message1');
+var totMem = os.totalmem();
+var freeMem = os.freemem();
+
+console.log(`Total memory: ${totMem}`);
+console.log(`Free memory: ${freeMem}`);
