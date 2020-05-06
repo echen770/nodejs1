@@ -1,7 +1,12 @@
-const os = require('os');
+const EventEmitter = require('events');
+const Logger = require('./logger');
 
-var totMem = os.totalmem();
-var freeMem = os.freemem();
+const logger = new Logger();
 
-console.log(`Total memory: ${totMem}`);
-console.log(`Free memory: ${freeMem}`);
+//register a listener
+logger.on('messageLogged', function (eventArg) {
+    // console.log('Listener called')
+    console.log(eventArg);
+});
+
+logger.log('some message');
